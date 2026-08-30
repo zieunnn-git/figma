@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Figma | 구조를 만들고 오토레이아웃 시작하기</title>
+  <link rel="stylesheet" href="style.css" /></head>
+<body>
+<main class="deck">
+
+  <section class="slide slide--dark">
+    <span class="eyebrow">FIGMA · FIRST CLASS</span>
+    <h1>화면은 하나씩 만들지만,<br><span class="accent">기준은 하나로 만듭니다.</span></h1>
+    <p class="lead">매번 복사해서 만들던 요소도, <span class="accent">정한 기준에 맞춰</span> 같은 방식으로 사용할 수 있도록 만들어봅니다.</p>
+  </section>
+
+<!--  <section class="slide">-->
+<!--    <span class="eyebrow">01 · INTRO</span>-->
+<!--    <h2>반갑습니다.</h2>-->
+<!--    <p class="big">이번 학기 여러분과 피그마 수업을 하게 된 장지은입니다.-->
+<!--  </section>-->
+
+
+  <section class="slide">
+  <span class="eyebrow">03 · FIRST, SET THE RULES</span>
+
+  <h2>
+    만들기 전에<br>
+    <span class="accent">먼저 기준부터 정합니다.</span>
+  </h2>
+
+  <!-- 핵심 개념 -->
+  <div class="grid2">
+
+    <div class="card">
+      <h3>프로젝트의 기준 → 토큰</h3>
+      <p>
+        글자 크기, 색상처럼<br>
+        프로젝트 전체에서 기준으로 관리할 값을<br>
+        이름을 붙여 일관되게 사용합니다.
+      </p>
+
+      <div class="stack">
+        <div class="item">font-size · color</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>반복되는 UI → 컴포넌트</h3>
+      <p>
+        버튼, 입력창, 카드처럼<br>
+        여러 곳에서 반복해서 사용하는 요소를<br>
+        하나의 기준으로 관리합니다.
+      </p>
+
+      <div class="buttonrow">
+        <div class="button">버튼</div>
+        <div class="button">버튼</div>
+        <div class="button">버튼</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- 변화 흐름 -->
+  <div class="flow">
+
+    <div class="step">
+      기준 정하기
+    </div>
+
+    <div class="arrow">→</div>
+
+    <div class="step">
+      필요한 곳에 일관되게 사용하기
+    </div>
+
+    <div class="arrow">→</div>
+
+    <div class="step">
+      한 곳에서 수정하기
+    </div>
+
+    <div class="arrow">→</div>
+
+    <div class="step">
+      필요하면 확장하기
+    </div>
+
+  </div>
+
+  <!-- AI 연결 -->
+  <div class="ai-note">
+    <p>
+      <strong>기준이 있으면 다음 작업이 쉬워집니다.</strong>
+      <br>Figma에서 디자인할 때뿐 아니라 코드로 구현하거나 AI에게 수정 작업을 요청할 때도
+        프로젝트의 기준과 역할을 명확하게 전달할 수 있습니다.
+    </p>
+
+    <p class="note">
+      예) “<code>.button-primary</code>의 색상을 변경해줘.”
+    </p>
+  </div>
+
+  <div class="quote">
+    처음부터 완벽한 시스템을 만들 필요는 없습니다.<br>
+    <span class="accent">
+      작은 기준부터 만들고, 필요하면 확장하면 됩니다.
+    </span>
+  </div>
+
+  <a href="index.html" class="guide-link">
+    <span>
+      <strong>기준은 어떻게 정할까요?</strong>
+      <small>
+        토큰과 컴포넌트의 역할, 이름, 재사용 방법 자세히 알아보기
+      </small>
+    </span>
+    <b>→</b>
+  </a>
+</section>
+
+
+  <section class="slide" id="page-structure">
+  <span class="eyebrow">04 · PAGE STRUCTURE</span>
+
+  <h2>
+    페이지의 큰 틀을 먼저 잡고,<br>
+    <span class="accent">하나씩 채워갑니다.</span>
+  </h2>
+
+  <div class="tree">
+    Home / Desktop
+    │
+    ├── Header
+    │
+    ├── Main
+    │
+    └── Footer
+  </div>
+</section>
+
+  <section class="slide">
+    <span class="eyebrow">05 · SECTION + CONTAINER</span>
+    <h2>영역의 역할과 내용의 폭을 나눕니다.</h2>
+    <div class="diagram">
+      <div class="labels"><span>SECTION · 전체 영역 / 배경</span><span>100% WIDTH</span></div>
+      <div class="sectionbox">
+        <div class="labels"><span>CONTAINER · 실제 내용 영역</span><span>MAX-WIDTH</span></div>
+        <div class="containerbox">
+          <div class="contentbox">Title · Text · Button · Card · Image</div>
+        </div>
+      </div>
+    </div>
+    <div class="grid2">
+      <article class="card"><h3>Section</h3><p>화면 전체 영역을 나눕니다. 섹션별 배경색, 배경 이미지, 큰 여백을 가질 수 있습니다.</p></article>
+      <article class="card"><h3>Container</h3><p>실제 콘텐츠가 들어가는 폭입니다. 일정한 정렬 기준과 max-width를 관리합니다.</p></article>
+    </div>
+  </section>
+
+  <section class="slide slide--dark">
+    <span class="eyebrow">06 · AUTO LAYOUT</span>
+    <h2>이제 안에 내용을 넣어보겠습니다.</h2>
+    <div class="tree">Section / Hero
+      └── Container
+      ├── Hero / Content
+      │   ├── Eyebrow
+      │   ├── Title
+      │   ├── Description
+      │   └── Button Group
+      │       ├── Button
+      │       └── Button
+      │
+      └── Hero / Visual</div>
+    <p class="lead">여기서 중요한 것은 <strong>같이 움직여야 하는 요소끼리 묶는 것</strong>입니다.</p>
+  </section>
+
+  <section class="slide">
+    <span class="eyebrow">07 · AUTO LAYOUT CASES</span>
+    <h2>여러 가지 경우를 직접 확인해봅니다.</h2>
+    <div class="auto-demo">
+      <div class="demo-panel">
+        <h3>① 세로로 쌓기</h3>
+        <div class="stack">
+          <div class="item">Eyebrow</div>
+          <div class="item">제목이 들어갑니다</div>
+          <div class="item">Suspendisse aliquam arcu vel efficitur molestie.</div>
+          <div class="button">Button</div>
+        </div>
+        <p class="note">제목과 설명이 길어지면 아래 요소도 함께 움직입니다.</p>
+      </div>
+      <div class="demo-panel">
+        <h3>② 가로로 묶기</h3>
+        <div class="stack">
+          <div class="buttonrow"><div class="button">취소</div><div class="button">확인</div></div>
+        </div>
+        <p class="note">버튼 그룹, 아이콘 + 텍스트처럼 함께 움직이는 요소를 묶습니다.</p>
+      </div>
+      <div class="demo-panel">
+        <h3>③ 내용에 맞게 크기 변경</h3>
+        <div class="stack">
+          <div class="button">저장</div>
+          <div class="button">임시 저장하기</div>
+        </div>
+        <p class="note">내용과 Padding을 기준으로 크기가 자연스럽게 달라집니다.</p>
+      </div>
+      <div class="demo-panel">
+        <h3>④ 반복되는 목록</h3>
+        <div class="stack">
+          <div class="item">Card 01</div><div class="item">Card 02</div><div class="item">Card 03</div>
+        </div>
+        <p class="note">카드를 추가하거나 삭제해도 목록의 관계를 유지합니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <span class="eyebrow">08 · TODAY'S PRACTICE</span>
+    <h2>지난번 와이어프레임을<br>실제 구조로 바꿔봅시다.</h2>
+    <div class="mission">
+      <h3>오늘의 실습</h3>
+      <ol>
+        <li>지난 시간에 만든 와이어프레임을 엽니다.</li>
+        <li>Typography · Color · 기준을 정하고 등록합니다.</li>
+        <li>Header · Main · Footer의 큰 구조를 만듭니다.</li>
+        <li>Header부터 시작해 Section과 Container를 구성합니다.</li>
+        <li>필요한 콘텐츠를 하나씩 조립하면서 화면을 채워갑니다.</li>
+        <li>내용이 함께 움직여야 하는 부분에 Auto Layout을 적용합니다.</li>
+        <li>반복되는 UI는 Component로 관리합니다.</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="slide slide--dark">
+    <div class="container">
+      <span class="eyebrow">09 · CHECK</span>
+
+      <h2>만들면서 계속 확인합니다.</h2>
+
+      <div class="grid2">
+        <article class="card">
+          <h3>이 요소들은 같이 움직여야 하나?</h3>
+          <p>
+            그렇다면 하나의 Auto Layout으로 묶을 수 있는지 확인합니다.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>이 요소는 반복해서 사용되나?</h3>
+          <p>
+            그렇다면 Component로 관리할 수 있는지 생각합니다.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>이름만 보고 역할을 알 수 있나?</h3>
+          <p>
+            Frame 34 대신 Section / Hero처럼 의미를 알 수 있게 이름을 붙입니다.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>화면이 바뀌어도 구조를 유지할 수 있나?</h3>
+          <p>
+            Desktop과 Mobile에서도 같은 기준을 적용할 수 있도록 구조를 생각합니다.
+          </p>
+        </article>
+      </div>
+
+      <div class="dark-rule">
+        <h3>작업을 진행하면서 필요한 기준은 추가합니다.</h3>
+        <p>
+          처음 정한 기준을 한 번 만들고 끝내는 것이 아니라, 일관되게 사용하는지 확인하고 필요한 경우 확장합니다.
+        </p>
+      </div>
+    </div>
+  </section>
+
+</main>
+</body>
+</html>
