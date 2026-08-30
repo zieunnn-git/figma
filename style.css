@@ -285,6 +285,8 @@ code {
   color: var(--accent-primary);
 }
 
+.slide[hidden] {display: none}
+
 .slide--dark .eyebrow {
   color: var(--text-accent-muted);
 }
