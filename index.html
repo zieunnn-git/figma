@@ -121,6 +121,65 @@
             font-size: 18px;
         }
 
+        /* 구역별 와이어프레임 미리보기 박스 */
+.preview-box {
+    background-color: #f1f5f9;
+    border: 1px dashed #cbd5e1;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 16px 0;
+}
+.preview-tag {
+    font-size: 13px;
+    font-weight: 700;
+    color: #64748b;
+    margin-bottom: 8px;
+    display: block;
+}
+
+/* Header UI Preview */
+.wf-header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    background: #ffffff;
+    padding: 12px 20px;
+    border-radius: 6px;
+    border: 1px solid #e2e8f0;
+}
+.wf-logo { font-weight: 800; font-size: 16px; color: #2563eb; }
+.wf-menu { display: flex; gap: 16px; font-size: 14px; color: #64748b; }
+.wf-btn { background: #2563eb; color: #fff; padding: 6px 12px; border-radius: 4px; font-size: 13px; font-weight: 600; }
+
+/* Hero UI Preview */
+.wf-hero {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 6px;
+    border: 1px solid #e2e8f0;
+}
+.wf-hero-text { flex: 1; }
+.wf-hero-title { font-size: 18px; font-weight: 800; color: #0f172a; margin-bottom: 6px; }
+.wf-hero-sub { font-size: 14px; color: #64748b; margin-bottom: 12px; }
+.wf-hero-img { width: 120px; height: 80px; background: #e2e8f0; border-radius: 6px; display: flex; align-items: center; justify-content: center; color: #94a3b8; font-size: 12px; }
+
+/* Cards UI Preview */
+.wf-cards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 8px; }
+.wf-card-item { background: #ffffff; border: 1px solid #e2e8f0; border-radius: 6px; padding: 12px; }
+.wf-card-img { height: 50px; background: #cbd5e1; border-radius: 4px; margin-bottom: 8px; }
+.wf-card-title { font-size: 16px; font-weight: 700; color: #1e293b; margin-bottom: 4px; }
+.wf-card-desc { font-size: 14px; color: #64748b; }
+.wf-card-meta { font-size: 12px; margin-top:8px}
+
+/* Footer UI Preview */
+.wf-footer { background: #1e293b; color: #94a3b8; padding: 16px 20px; border-radius: 6px; font-size: 12px; }
+.wf-footer-top { display: flex; justify-content: space-between; margin-bottom: 12px; border-bottom: 1px solid #334155; padding-bottom: 8px; }
+.wf-footer-links { display: flex; gap: 12px; }
+
         /* Responsive */
         @media (max-width: 768px) {
             body { font-size: 16px; }
@@ -139,107 +198,268 @@
         
         <!-- INTRO -->
         <section>
-            <span class="badge">Lesson Intro</span>
-            <h1>💡 피그마를 통해 웹의 본질을 이해할 수 있을까?</h1>
-            
-            <p>피그마의 오토레이아웃 기능은 단순한 디자인 도구가 아닙니다. 실제 웹 코딩의 Flexbox, Padding, Margin 구조를 시각화해 주는 도구입니다.</p>
+            <span class="badge">01 · INTRO</span>
+            <h2>웹의 구조를 이해하고 피그마로 화면 설계하기</h2>
+            <p>웹 화면을 만들 때는 단순히 원하는 위치에 요소를 배치하는 것이 아니라, 어떤 요소가 함께 움직이고 어떻게 연결되는지를 먼저 생각해야 합니다.
+<br>
+우리는 화면을 설계하는 도구로 Figma를 사용하고, Figma의 Auto Layout을 통해 웹의 구조를 직접 만들어 봅니다.</p>
 
-            <div class="story-box">
-                <p>피그마에서 <strong>Shift + A</strong>를 눌러 박스를 싸고 간격을 조절하는 과정이 바로 웹 화면이 지어지는 본질적인 원리입니다.<br>
-                  도구를 다루는 기술은 <strong>'시간문제'</strong>일 뿐입니다.<br>
-                  이 실습을 따라 하다 보면 자연스럽게 웹 구조의 핵심을 파악하게 됩니다.</p>
-            </div>
-
-            <div class="grid-2">
+            <div class="grid-2" style="margin-top: 24px;">
                 <div class="card">
-                    <h3>❌ 겉모습만 만드는 사람 (현장 초급)</h3>
-                    <p>웹의 본질(구조)을 모른 채 AI에 질문함.<br>
-                    AI가 뱉어낸 '할루시네이션(거짓 코드)'을 걸러낼 지식이 없어 겉모습만 대충 구현하고, 생산성 없는 파편적 보수 작업만 반복함.</p>
+                    <h3>📐 화면을 구조로 보기</h3>
+                    <p>화면을 자유롭게 배치하는 것이 아니라
+                      큰 상자 안에 작은 상자를 넣듯
+                      영역과 요소의 관계를 생각합니다.</p>
                 </div>
                 <div class="card" style="border-color: var(--accent);">
-                    <h3>⭕ 구조를 통제하는 진짜 실력자</h3>
-                    <p>탄탄한 박스 구조와 웹의 본질을 완벽히 이해함.<br>
-                    AI의 결과물을 한눈에 검증하고 손쉽게 주도하므로, 작업의 효율과 완성도에서 <strong>비교조차 되지 않는 차이</strong>를 만들어냅니다.</p>
+                    <h3>🧩 필요한 요소를 묶기</h3>
+                    <p>함께 움직여야 하는 요소를 하나의 묶음으로 만들고, 가로 또는 세로로 정렬하면서 화면의 구조를 완성합니다.</p>
                 </div>
+                <p>오늘의 핵심: Auto Layout의 기능을 모두 외우는 것이 목표가 아닙니다. “무엇과 무엇을 하나로 묶을까?”를 생각하면서 웹 화면의 구조를 직접 만들어 보는 것이 목표입니다.</p>
             </div>
         </section>
 
         <!-- PRACTICE GUIDE -->
         <section>
-            <span class="badge">Step by Step</span>
-            <h2>오토레이아웃 마스터 함께 따라하기</h2>
-            <p>남은 시간 동안 수행평가를 위해 오토레이아웃 중첩 구조를 차곡차곡 함께 만들어 갑니다.</p>
+    <span class="badge">Step by Step</span>
+    <h2>웹 화면 구조를 피그마로 함께 설계하기</h2>
 
-            <!-- STEP 1 -->
-            <div class="step-card">
-                <h3>1. 메인 프레임 & 레이아웃 그리드 설정
-                    <span class="type-guide">(프레임: Desktop 1440px)</span>
-                </h3>
-                <p>도화지 규격과 가이드라인을 설정하는 단계입니다.</p>
-                <ul>
-                    <li><strong>Desktop Frame 생성:</strong> 너비 1440px 크기의 프레임을 생성합니다.</li>
-                    <li><strong>Layout Grid 설정:</strong> Columns 12개, Margin 80px, Gutter 24px을 적용합니다.</li>
-                </ul>
+    <p>
+        먼저 전체 화면의 구조를 살펴보고,
+        <strong>큰 영역부터 작은 요소까지 차례대로</strong> 만들어 봅니다.
+        필요한 곳에 Auto Layout을 적용하면서 화면이 어떻게 구성되는지 확인합니다.
+    </p>
+
+    <div class="story-box">
+        <p>
+            <strong>생각하는 순서</strong><br>
+            ① 어떤 영역이 필요한가?
+            → ② 어떤 요소가 함께 움직이는가?
+            → ③ 하나의 묶음으로 만들 수 있는가?
+            → ④ 가로인가, 세로인가?
+            → ⑤ 필요한 곳에 Auto Layout을 적용한다.
+        </p>
+    </div>
+
+
+    <!-- STEP 1 -->
+    <div class="step-card">
+        <h3>1. 메인 프레임 & 레이아웃 그리드 설정
+            <span class="type-guide">(프레임: Desktop 1440px)</span>
+        </h3>
+
+        <p>
+            웹페이지를 만들기 위한 <strong>전체 도화지</strong>를 먼저 준비합니다.
+            화면의 크기와 콘텐츠가 놓일 기준을 설정합니다.
+        </p>
+
+        <ul>
+            <li>
+                <strong>Desktop Frame 생성:</strong>
+                너비 1440px 크기의 프레임을 생성합니다.
+            </li>
+            <li>
+                <strong>Layout Grid 설정:</strong>
+                Columns 12개, Margin 80px, Gutter 24px을 적용합니다.
+            </li>
+            <li>
+                <strong>전체 구조 확인:</strong>
+                화면 안에 Header → Hero → Main Content → Footer가 들어갈 자리를 생각합니다.
+            </li>
+        </ul>
+    </div>
+
+
+    <!-- STEP 2: HEADER -->
+    <div class="step-card">
+        <h3>2. 상단 (Header) 영역 구성
+            <span class="type-guide">(로고: 24/1.3 | 메뉴: 18/1.5)</span>
+        </h3>
+
+        <div class="preview-box">
+            <span class="preview-tag">👁️ [Step 2] 헤더 완성 예시 형태</span>
+
+            <div class="wf-header">
+                <div class="wf-logo">Gildong</div>
+
+                <div class="wf-menu">
+                    <span>소개</span>
+                    <span>핵심 역량</span>
+                    <span>프로젝트</span>
+                    <span>연락주세요</span>
+                </div>
+
+                <div class="wf-btn">시작하기</div>
+            </div>
+        </div>
+
+        <p>
+            웹페이지의 가장 위에 있는 <strong>Header 영역</strong>을 만듭니다.
+        </p>
+
+        <ul>
+            <li>
+                <strong>구성 요소:</strong>
+                로고(본인 이름) + 메뉴(Navigation) + 액션 버튼(CTA)
+            </li>
+            <li>
+                가로로 나란히 배치하고, 양쪽 끝의 위치를 생각해 봅니다.
+            </li>
+        </ul>
+    </div>
+
+
+    <!-- STEP 3: HERO -->
+    <div class="step-card">
+        <h3>3. 히어로 (Hero Visual) 영역 구성
+            <span class="type-guide">(히어로: 40/1.3 | 서브 설명: 24/1.5)</span>
+        </h3>
+
+        <div class="preview-box">
+            <span class="preview-tag">👁️ [Step 3] 히어로 완성 예시 형태</span>
+
+            <div class="wf-hero">
+                <div class="wf-hero-text">
+                    <div class="wf-hero-eyebrow">From Chaos to System</div>
+
+                    <div class="wf-hero-title">
+                        화면 너머의 구조까지 생각합니다.
+                    </div>
+
+                    <div class="wf-hero-sub">
+                        사용자의 입장에서 문제를 바라보고
+                        명확한 구조와 일관된 화면으로 해결합니다.
+                    </div>
+
+                    <div class="wf-btn" style="display:inline-block;">
+                        제가 일하는 방식 →
+                    </div>
+                </div>
+
+                <div class="wf-hero-img">IMAGE</div>
+            </div>
+        </div>
+
+        <p>시선을 사로잡는 대표 비주얼 영역을 구성합니다.</p>
+
+        <ul>
+            <li>
+                <strong>구성 요소:</strong>
+                타이틀 + 설명 + 버튼 + 이미지
+            </li>
+            <li>텍스트와 버튼은 하나의 세로 묶음, 이미지와는 가로 구조로 생각해 봅니다.</li>
+        </ul>
+    </div>
+
+
+    <!-- STEP 4: CARDS -->
+    <div class="step-card">
+        <h3>4. 메인 콘텐츠 (Card List) 영역 구성
+            <span class="type-guide">
+                (영역 제목: 32/1.35 | 카드 제목: 22/1.4 | 카드 설명: 18/1.6)
+            </span>
+        </h3>
+
+        <div class="preview-box">
+            <span class="preview-tag">👁️ [Step 4] 메인 콘텐츠 완성 예시 형태</span>
+
+            <div style="font-weight:700; font-size:15px; margin-bottom:8px; color:#0f172a;">
+                제가 일하는 방식
             </div>
 
-            <!-- STEP 2 -->
-            <div class="step-card">
-                <h3>2. 상단 (Header) 영역 구성
-                    <span class="type-guide">(로고 글자 크기: 24/1.3 | 메뉴 글자 크기: 18/1.5)</span>
-                </h3>
-                <p>가로 정렬(Horizontal) 오토레이아웃을 적용합니다.</p>
-                <ul>
-                    <li><strong>구성 요소:</strong> 로고(본인 이름 작성) + 메뉴(Navigation) + 액션 버튼(CTA)</li>
-                    <li><strong>오토레이아웃 적용:</strong> Shift + A를 눌러 가로 정렬을 적용하고 양끝 정렬(Space between) 또는 간격(Gap)을 설정합니다.</li>
-                </ul>
-            </div>
+            <div class="wf-cards-grid">
 
-            <!-- STEP 3 -->
-            <div class="step-card">
-                <h3>3. 히어로 (Hero Visual) 영역 구성
-                    <span class="type-guide">(히어로 글자 크기: 40/1.3 | 서브 설명: 24/1.5)</span>
-                </h3>
-                <p>시선을 사로잡는 대표 비주얼 영역을 구성합니다.</p>
-                <ul>
-                    <li><strong>구성 요소:</strong> 메인 타이틀 텍스트 + 서브 설명 + CTA 버튼 + 메인 이미지</li>
-                    <li><strong>중첩 구조:</strong> 텍스트와 버튼을 세로(Vertical) 오토레이아웃으로 감싸고, 메인 이미지와 가로(Horizontal)로 배치합니다.</li>
-                </ul>
-            </div>
+                <div class="wf-card-item">
+                    <div class="wf-card-img"></div>
+                    <div class="wf-card-title">주요 작업</div>
+                    <div class="wf-card-desc">
+                        웹 화면을 설계하고 HTML/CSS로 구현합니다.
+                    </div>
+                </div>
 
-            <!-- STEP 4 -->
-            <div class="step-card">
-                <h3>4. 메인 콘텐츠 (Card List) 영역 구성
-                    <span class="type-guide">(영역 제목: 32/1.35 | 카드 제목: 22/1.4 | 카드 설명: 18/1.6)</span>
-                </h3>
-                <p>반복되는 카드 구조와 영역 헤더를 차곡차곡 감싸는 중첩 레이아웃을 형성합니다.</p>
-                <ul>
-                    <li><strong>구성 요소:</strong> 영역 제목/설명 + 카드 목록 (카드 3~4개)</li>
-                    <li><strong>카드 세부 요소:</strong> [카드 제목 + 이미지 영역 + 요약 설명 + 자세히 보기 버튼]으로 단탄하게 구성합니다.</li>
-                    <li><strong>중첩 구조:</strong> 낱개 카드를 먼저 오토레이아웃으로 제작한 후, 카드 전체를 가로 박스로 다시 감싸줍니다.</li>
-                </ul>
-            </div>
+                <div class="wf-card-item">
+                    <div class="wf-card-img"></div>
+                    <div class="wf-card-title">과정</div>
+                    <div class="wf-card-desc">
+                        요구사항을 파악하고 구조를 설계한 뒤 구현합니다.
+                    </div>
+                </div>
 
-            <!-- STEP 5 -->
-            <div class="step-card">
-                <h3>5. 하단 (Footer) 영역 구성
-                    <span class="type-guide">(하단 로고: 20/1.3 | 텍스트 및 약관: 16/1.5)</span>
-                </h3>
-                <p>사이트의 필수 마무리 정보를 정돈합니다.</p>
-                <ul>
-                    <li><strong>구성 요소:</strong> 로고(이름) + 사이트맵 + 약관 및 정책 + 카피라이트</li>
-                    <li><strong>사이트맵 표기:</strong> [회사소개, 고객센터] 메뉴명을 명확히 표기합니다.</li>
-                    <li><strong>약관 및 정책:</strong> <strong>[개인정보처리방침]</strong>(굵게) + [이용약관]을 함께 배치합니다.</li>
-                    <li><strong>카피라이트(Copyright) 작성:</strong> 본인의 영문 이름(성 제외)을 활용하여 표준 서식으로 기재합니다.</li>
-                </ul>
+                <div class="wf-card-item">
+                    <div class="wf-card-img"></div>
+                    <div class="wf-card-title">시스템</div>
+                    <div class="wf-card-desc">
+                        반복되는 요소를 정리해 일관된 화면을 만듭니다.
+                    </div>
+                </div>
 
-                <div class="example-box">
-                  <strong>📌 카피라이트 표기 예시</strong>
-                  <p style="margin-top:8px">[예시 1] © 2026 Gildong. All rights reserved.</p>
-                  <p>[예시 2] Copyright 2026. Gildong all rights reserved.</p>
-                  <p>[예시 3] Copyright © 2026 Gildong.</p>
-              </div>
             </div>
-        </section>
+        </div>
+
+        <p>반복되는 정보를 보여주는 <strong>Card List</strong>를 만듭니다.</p>
+
+        <ul>
+            <li>
+                <strong>카드 구성:</strong>
+                이미지 + 제목 + 설명
+            </li>
+            <li>카드 하나를 먼저 만들고, 같은 구조를 여러 개 나란히 배치해 봅니다.</li>
+        </ul>
+    </div>
+
+
+    <!-- STEP 5: FOOTER -->
+    <div class="step-card">
+        <h3>5. 하단 (Footer) 영역 구성
+            <span class="type-guide">(하단 로고: 20/1.3 | 텍스트 및 약관: 16/1.5)</span>
+        </h3>
+
+        <div class="preview-box">
+            <span class="preview-tag">👁️ [Step 5] 하단 완성 예시 형태</span>
+
+            <div class="wf-footer">
+
+                <div class="wf-footer-top">
+                    <div style="font-weight:700; color:#fff;">
+                        Gildong
+                    </div>
+
+                    <div class="wf-footer-links">
+                        <span>회사소개</span>
+                        <span>고객센터</span>
+                        <span style="font-weight:700; color:#fff;">
+                            개인정보처리방침
+                        </span>
+                        <span>이용약관</span>
+                    </div>
+                </div>
+
+                <div>
+                    © 2026 Gildong. All rights reserved.
+                </div>
+
+            </div>
+        </div>
+
+        <p>사이트의 필수 마무리 정보를 정돈합니다.</p>
+
+        <ul>
+            <li>
+                <strong>구성 요소:</strong>
+                로고 + 사이트맵 + 약관 및 정책 + 카피라이트
+            </li>
+        </ul>
+
+        <div class="example-box">
+            <p>
+                📌 <strong>카피라이트 표기 예시</strong><br>
+                [예시 1] © 2026 Gildong. All rights reserved.<br>
+                [예시 2] Copyright 2026. Gildong all rights reserved.<br>
+                [예시 3] Copyright © 2026 Gildong.
+            </p>
+        </div>
+    </div>
+</section>
 
         <!-- EVALUATION & SUBMISSION -->
         <section style="border-bottom: none;">
