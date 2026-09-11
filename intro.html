@@ -6,10 +6,11 @@
     <title>피그마 & 웹 레이아웃 종합 레퍼런스 가이드</title>
     <style>
         :root {
-            --bg-main: #f8f9fa;
+            --bg-main: #f7f7f7;
             --bg-card: #ffffff;
-            --text-primary: #111827;
-            --text-secondary: #4b5563;
+            --text-primary: #111111;
+            --text-secondary: #222222;
+            --text-muted: #4b5563;
             --accent: #635bff;
             --accent-light: #f0efff;
             --border: #e5e7eb;
@@ -17,65 +18,81 @@
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
+        
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans KR", sans-serif;
             background-color: var(--bg-main);
             color: var(--text-primary);
             line-height: 1.6;
-            font-size: 18px;
+            font-size: 18px; /* 기준 폰트 크기 18px */
         }
+        *[hidden]{display: none!important;}
 
-        .container { max-width: 960px; margin: 0 auto; padding: 40px 24px; }
+        /* Container: Padding 48px(Top/Bottom), 24px(Left/Right) - 8px 배수 */
+        .container { 
+            max-width: 960px; 
+            margin: 0 auto; 
+            padding: 48px 24px; 
+        }
         
-        /* Top Navigation Link Banner */
+        /* Quick Link Banner: Margin 40px, Padding 24px - 8px 배수 */
         .quick-link-banner {
             background-color: var(--accent);
             color: #ffffff;
-            padding: 20px 24px;
-            border-radius: 12px;
+            padding: 24px;
+            border-radius: 16px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 40px;
-            box-shadow: 0 4px 12px rgba(99, 91, 255, 0.2);
+            box-shadow: 0 4px 16px rgba(99, 91, 255, 0.2);
         }
         .quick-link-banner a {
             background: #ffffff;
             color: var(--accent);
-            padding: 10px 20px;
+            padding: 12px 24px;
             border-radius: 8px;
             text-decoration: none;
             font-weight: 700;
-            font-size: 16px;
+            font-size: 18px;
             transition: all 0.2s;
         }
         .quick-link-banner a:hover { opacity: 0.9; transform: translateY(-1px); }
 
-        section { margin-bottom: 60px; }
+        section { margin-bottom: 80px; }
+
         .badge {
             display: inline-block;
             padding: 4px 12px;
             background-color: var(--accent-light);
             color: var(--accent);
             font-weight: 700;
-            font-size: 15px;
+            font-size: .95em;
             border-radius: 999px;
+            margin-top: 12px;
             margin-bottom: 12px;
         }
-        h1 { font-size: 36px; margin-bottom: 12px; letter-spacing: -0.02em; }
-        h2 { font-size: 28px; margin-bottom: 20px; border-bottom: 2px solid var(--border); padding-bottom: 8px; }
-        h3 { font-size: 22px; margin-bottom: 12px; }
-        p { color: var(--text-secondary); margin-bottom: 16px; word-break: keep-all; }
 
-        /* Tables & Cards */
-        .card { background: var(--bg-card); padding: 24px; border-radius: 12px; border: 1px solid var(--border); margin-bottom: 20px; }
-        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap:0 20px; }
+        /* Typography Hierarchy (8px/4px 기반) */
+        h1 { font-size: 40px; margin-bottom: 16px; letter-spacing: -0.02em; line-height: 1.2; }
+        h2 { font-size: 32px; margin-bottom: 24px; border-bottom: 2px solid var(--border); padding-bottom: 8px; line-height: 1.3; }
+        h3 { font-size: 24px; margin-bottom: 12px; line-height: 1.4; }
+        p { color: var(--text-secondary); margin-bottom: 16px; word-break: keep-all; font-size: 18px; }
+
+        /* Cards & Grids */
+        .card { 
+            background: var(--bg-card); 
+            padding: 24px; 
+            border-radius: 16px; 
+            border: 1px solid var(--border);
+        }
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
         
-        table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 16px; }
+        table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 18px; }
         th, td { padding: 12px 16px; text-align: left; border-bottom: 1px solid var(--border); }
         th { background-color: var(--bg-main); font-weight: 700; }
 
-        /* Hidden / Toggle Section (Accordion) */
+        /* Hidden Section / Accordion */
         .hidden-section {
             background: var(--bg-card);
             border: 1px solid var(--border);
@@ -85,7 +102,7 @@
         }
         .toggle-btn {
             width: 100%;
-            padding: 20px 24px;
+            padding: 24px;
             background: none;
             border: none;
             text-align: left;
@@ -101,108 +118,101 @@
         .toggle-content {
             padding: 24px;
             border-top: 1px solid var(--border);
-            display: none; /* 기본 숨김 */
+            display: none;
         }
         .toggle-content.active { display: block; }
-        .lock-icon { font-size: 16px; color: #ef4444; background: #fee2e2; padding: 2px 8px; border-radius: 4px; }
-        .unlock-icon { font-size: 16px; color: #10b981; background: #d1fae5; padding: 2px 8px; border-radius: 4px; }
+        .unlock-icon { font-size: .95em; color: #10b981; background: #d1fae5; padding: 4px 8px; border-radius: 4px; }
 
         /* Color Preview Style */
-.color-preview-list {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    margin-top: 20px;
-}
-.color-item {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    padding: 16px 20px;
-    background: #ffffff;
-    border: 1px solid #e5e7eb;
-    border-radius: 12px;
-}
-.color-chip {
-    width: 48px;
-    height: 48px;
-    border-radius: 8px;
-    flex-shrink: 0;
-}
-.color-info {
-    flex-grow: 1;
-}
-.color-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 4px;
-}
-.color-name {
-    font-size: 18px;
-    font-weight: 700;
-    color: #111827;
-}
-.color-hex {
-    font-family: monospace;
-    font-size: 15px;
-    color: #6b7280;
-    background: #f3f4f6;
-    padding: 2px 8px;
-    border-radius: 4px;
-}
-.color-desc {
-    font-size: 15px;
-    color: #4b5563;
-}
+        .color-preview-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-top: 24px;
+        }
+        .color-item {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            padding: 16px 24px;
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+        }
+        .color-chip {
+            width: 48px;
+            height: 48px;
+            border-radius: 8px;
+            flex-shrink: 0;
+        }
+        .color-info { flex-grow: 1; }
+        .color-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 4px;
+        }
+        .color-name { font-size: 18px; font-weight: 700; color: #111111; }
+        .color-hex {
+            font-family: monospace;
+            font-size: .95em;
+            color: #4b5563;
+            background: #f3f4f6;
+            padding: 4px 8px;
+            border-radius: 4px;
+        }
+        .color-desc { font-size: .95em; color: #222222; }
 
-/* Typography Preview Style (첨부 이미지 레이아웃 반영) */
-.typo-preview-list {
-    display: flex;
-    flex-direction: column;
-    margin-top: 20px;
-    background: #ffffff;
-    border: 1px solid #e5e7eb;
-    border-radius: 12px;
-    padding: 12px 24px;
-}
-.typo-item {
-    padding: 24px 0;
-    border-bottom: 1px solid #e5e7eb;
-}
-.typo-item:last-child {
-    border-bottom: none;
-}
-.typo-preview-text {
-    color: #111827;
-    margin-bottom: 12px;
-    word-break: keep-all;
-}
-.typo-meta {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 15px;
-}
-.typo-spec {
-    color: #6b7280;
-    font-weight: 500;
-}
-.typo-use {
-    color: #374151;
-    font-weight: 500;
-}
+        /* Typography Preview Style */
+        .typo-preview-list {
+            display: flex;
+            flex-direction: column;
+            margin-top: 24px;
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 12px 24px;
+        }
+        .typo-item {
+            padding: 24px 0;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        .typo-item:last-child { border-bottom: none; }
+        .typo-preview-text { color: #111111; margin-bottom: 12px; word-break: keep-all; }
+        .typo-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: .95em;
+        }
+        .typo-spec { color: #4b5563; font-weight: 500; }
+        .typo-use { color: #111111; font-weight: 600; }
 
-@media (max-width: 640px) {
-    .typo-meta {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 4px;
-    }
-}
+        /* Spacing Visual Grid */
+        .spacing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 16px;
+            margin-top: 24px;
+        }
+        .spacing-card {
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+        }
+        .spacing-visual {
+            background: var(--accent-light);
+            border: 1px dashed var(--accent);
+            margin: 0 auto 12px auto;
+            border-radius: 4px;
+        }
 
-        /* Responsive */
-        @media (max-width: 768px) {
+        strong.primary{font-size: 1.25em;}
+
+        @media (max-width: 640px) {
+            .typo-meta { flex-direction: column; align-items: flex-start; gap: 4px; }
             .grid-2 { grid-template-columns: 1fr; }
             .quick-link-banner { flex-direction: column; gap: 16px; text-align: center; }
         }
@@ -216,26 +226,28 @@
         <div class="quick-link-banner">
             <div>
                 <h3 style="color: #fff; margin-bottom: 4px;">🚀 실습 따라하기 페이지로 이동</h3>
-                <p style="color: #e0e7ff; margin-bottom: 0; font-size: 16px;">1440px 그리드 세팅부터 헤더/푸터 따라하기 가이드</p>
+                <p style="color: #e0e7ff; margin-bottom: 0; font-size: .95em;">1440px 그리드 세팅부터 헤더/푸터 따라하기 가이드</p>
             </div>
             <a href="index.html">실습 가이드 열기 ➔</a>
         </div>
 
         <h1>Figma & Web Design System Reference</h1>
-        <p>화면의 구조를 만들고, 요소 사이의 관계를 잡으며, 반복되는 디자인 시스템을 효율적으로 관리하는 통합 기준서입니다.</p>
+        <p>화면의 구조를 만들고, 요소 사이의 관계를 잡으며, 반복되는 UI 요소와 스타일을 효율적으로 관리하는 통합 기준서입니다.</p>
 
-        <!-- SECTION 01: DESIGN TOKEN -->
+        <!-- SECTION 01: DESIGN TOKEN & STYLE RULE -->
         <section>
-            <span class="badge">01 · DESIGN TOKEN</span>
-            <h2>역할 중심의 디자인 토큰 관리</h2>
-            <div class="grid-2">
+            <span class="badge">01 · DESIGN STYLE & ROLE</span>
+            <h2>역할 명칭(Role Name) 중심의 스타일 등록</h2>
+            <p>화면을 구성할 때 색상값(#111111)이나 크기(48px)를 직접 입력하지 않고, <strong class="primary">역할 이름</strong>(Role Name)으로 <strong class="primary">피그마 스타일</strong>(Style)에 등록하여 재사용합니다.</p>
+            
+            <div class="grid-2" hidden>
                 <div class="card">
-                    <h3>❌ 값 직접 사용 (하드코딩)</h3>
-                    <p>제목 32px, 본문 18px, 글자색 #111111...<br>새로운 화면을 만들 때마다 고유한 파라미터 값을 직접 찾고 지정해야 합니다.</p>
+                    <h3>❌ 값 직접 지정 (하드코딩)</h3>
+                    <p>글자 크기 48px, Bold, 색상 #111111...<br>새로운 화면을 만들 때마다 치수와 색상값을 다시 기억하고 일일이 지정해야 합니다.</p>
                 </div>
                 <div class="card" style="border-color: var(--accent);">
-                    <h3>⭕ 역할로 사용 (토큰화)</h3>
-                    <p><code>Heading/MD</code>, <code>Body/MD</code>, <code>Text/Default</code>...<br>새로운 화면에서도 정의된 역할을 찾아 일관되게 적용할 수 있습니다.</p>
+                    <h3>⭕ 역할 이름으로 등록 (스타일 사용)</h3>
+                    <p><code>Hero Title</code>, <code>bg/light</code>, <code>text/main</code>...<br>역할 이름을 미리 등록해 두면 클릭 한 번으로 통일된 레이아웃 디자인을 빠르게 완성할 수 있습니다.</p>
                 </div>
             </div>
         </section>
@@ -243,11 +255,35 @@
         <!-- SECTION 02: COLOR SYSTEM -->
         <section>
             <span class="badge">02 · COLOR SYSTEM</span>
-            <h2>역할에 따른 Color 기준</h2>
-            <p>프로젝트에서 사용할 색상을 역할에 따라 구분하고 실제 색상을 시각적으로 확인합니다.</p>
+            <h2>피그마 스타일 등록용 기본 컬러 5종</h2>
+            <p>웹 레이아웃 구성 시 꼭 필요한 5가지 핵심 컬러입니다. 각 컬러의 역할을 명확히 이해하고 피그마 <strong class="primary">Color Style</strong>에 등록하여 사용합니다.</p>
 
             <div class="color-preview-list">
-                <!-- Color Item 1 -->
+                <!-- 1. 연한 배경 -->
+                <div class="color-item">
+                    <div class="color-chip" style="background-color: #F7F7F7; border: 1px solid #E5E7EB;"></div>
+                    <div class="color-info">
+                        <div class="color-header">
+                            <span class="color-name">color/bg-light</span>
+                            <span class="color-hex">#F7F7F7</span>
+                        </div>
+                        <div class="color-desc">연한 배경 · 카드(Card) 컨테이너 및 구분용 섹션 배경</div>
+                    </div>
+                </div>
+
+                <!-- 2. 진한 컬러 (버튼 / 헤더) -->
+                <div class="color-item">
+                    <div class="color-chip" style="background-color: #111111;"></div>
+                    <div class="color-info">
+                        <div class="color-header">
+                            <span class="color-name">color/main-dark</span>
+                            <span class="color-hex">#111111</span>
+                        </div>
+                        <div class="color-desc">진한 컬러 · 주요 버튼 배경, 섹션 헤더, 히어로 텍스트</div>
+                    </div>
+                </div>
+
+                <!-- 3. 강조 컬러 -->
                 <div class="color-item">
                     <div class="color-chip" style="background-color: #635BFF;"></div>
                     <div class="color-info">
@@ -255,67 +291,31 @@
                             <span class="color-name">color/accent</span>
                             <span class="color-hex">#635BFF</span>
                         </div>
-                        <div class="color-desc">브랜드 핵심 색상 · 메인 버튼 · 링크 · 선택 상태</div>
+                        <div class="color-desc">강조 컬러 · 강조 텍스트(히어로 핵심 키워드, 본문 강조) 및 포인트 배경</div>
                     </div>
                 </div>
 
-                <!-- Color Item 2 -->
+                <!-- 4. 본문 글자 -->
                 <div class="color-item">
-                    <div class="color-chip" style="background-color: #131313;"></div>
+                    <div class="color-chip" style="background-color: #222222;"></div>
                     <div class="color-info">
                         <div class="color-header">
-                            <span class="color-name">color/text/primary</span>
-                            <span class="color-hex">#131313</span>
+                            <span class="color-name">color/text-main</span>
+                            <span class="color-hex">#222222</span>
                         </div>
-                        <div class="color-desc">가장 중요한 타이틀 및 대표 메인 글자</div>
+                        <div class="color-desc">본문 글자 · 일반 본문, 메뉴, 라벨 등 모든 기본 텍스트</div>
                     </div>
                 </div>
 
-                <!-- Color Item 3 -->
+                <!-- 5. 진한 배경 글자 -->
                 <div class="color-item">
-                    <div class="color-chip" style="background-color: #333333;"></div>
+                    <div class="color-chip" style="background-color: #FFFFFF; border: 1px solid #111111;"></div>
                     <div class="color-info">
                         <div class="color-header">
-                            <span class="color-name">color/text/default</span>
-                            <span class="color-hex">#333333</span>
-                        </div>
-                        <div class="color-desc">일반 읽기용 본문 글자</div>
-                    </div>
-                </div>
-
-                <!-- Color Item 4 -->
-                <div class="color-item">
-                    <div class="color-chip" style="background-color: #666666;"></div>
-                    <div class="color-info">
-                        <div class="color-header">
-                            <span class="color-name">color/text/muted</span>
-                            <span class="color-hex">#666666</span>
-                        </div>
-                        <div class="color-desc">보조 정보 · 메타 데이터 · 설명 글자</div>
-                    </div>
-                </div>
-
-                <!-- Color Item 5 -->
-                <div class="color-item">
-                    <div class="color-chip" style="background-color: #FFFFFF; border: 1px solid #CCCCCC;"></div>
-                    <div class="color-info">
-                        <div class="color-header">
-                            <span class="color-name">color/bg/base</span>
+                            <span class="color-name">color/text-dark-bg</span>
                             <span class="color-hex">#FFFFFF</span>
                         </div>
-                        <div class="color-desc">페이지 및 섹션 기본 배경</div>
-                    </div>
-                </div>
-
-                <!-- Color Item 6 -->
-                <div class="color-item">
-                    <div class="color-chip" style="background-color: #CCCCCC;"></div>
-                    <div class="color-info">
-                        <div class="color-header">
-                            <span class="color-name">color/border/default</span>
-                            <span class="color-hex">#CCCCCC</span>
-                        </div>
-                        <div class="color-desc">Input · Card · 구분선 등 명확한 경계선</div>
+                        <div class="color-desc">반전 글자 · 진한 버튼 및 어두운 배경/포인트 배경 위의 흰색 글자</div>
                     </div>
                 </div>
             </div>
@@ -323,144 +323,272 @@
 
         <!-- SECTION 03: TYPOGRAPHY -->
         <section>
-            <span class="badge">03 · TYPOGRAPHY</span>
-            <h2>타이포그래피 위계 (시각적 미리보기)</h2>
-            <p>글자의 실제 크기, 두께, 줄간격과 사용 목적을 직관적으로 확인합니다. (데스크톱 본문 최소 16px 원칙)</p>
+            <span class="badge">03 · TYPOGRAPHY & HIERARCHY</span>
+            <h2>타이포그래피 위계 및 피그마 스타일 5종</h2>
+            <p>글자 위계는 단순히 <strong class="primary">크기</strong>뿐만 아니라 <strong class="primary">두께(Bold)와 색상</strong>을 조합하여 만들 수 있습니다.</p>
 
             <div class="typo-preview-list">
-                <!-- Typo Item 1 -->
                 <div class="typo-item">
-                    <div class="typo-preview-text" style="font-size: 48px; font-weight: 700; line-height: 1.2;">Display / Large</div>
+                    <div class="typo-preview-text" style="font-size: 48px; font-weight: 700; line-height: 1.2;">Hero Title</div>
                     <div class="typo-meta">
-                        <span class="typo-spec">48px · Bold · line-height 1.2</span>
-                        <span class="typo-use">Hero 핵심 메시지, 대표 브랜드 슬로건</span>
+                        <span class="typo-spec">48px · Bold · line-height 120%</span>
+                        <span class="typo-use">히어로 섹션 메인 타이틀</span>
                     </div>
                 </div>
 
-                <!-- Typo Item 2 -->
                 <div class="typo-item">
-                    <div class="typo-preview-text" style="font-size: 36px; font-weight: 700; line-height: 1.3;">Heading / Large</div>
+                    <div class="typo-preview-text" style="font-size: 32px; font-weight: 700; line-height: 1.3;">Heading / Large</div>
                     <div class="typo-meta">
-                        <span class="typo-spec">36px · Bold · line-height 1.3</span>
-                        <span class="typo-use">큰 영역(Section)의 메인 제목</span>
+                        <span class="typo-spec">32px · Bold · line-height 130%</span>
+                        <span class="typo-use">히어로 부설명문 및 큰 영역(Section) 메인 제목</span>
                     </div>
                 </div>
 
-                <!-- Typo Item 3 -->
                 <div class="typo-item">
-                    <div class="typo-preview-text" style="font-size: 28px; font-weight: 700; line-height: 1.4;">Heading / Medium</div>
+                    <div class="typo-preview-text" style="font-size: 24px; font-weight: 600; line-height: 1.4;">Heading / Medium</div>
                     <div class="typo-meta">
-                        <span class="typo-spec">28px · Bold · line-height 1.4</span>
-                        <span class="typo-use">콘텐츠 그룹, 카드 영역 타이틀</span>
+                        <span class="typo-spec">24px · SemiBold · line-height 140%</span>
+                        <span class="typo-use">본문 강조글, 카드 영역 타이틀</span>
                     </div>
                 </div>
 
-                <!-- Typo Item 4 -->
                 <div class="typo-item">
-                    <div class="typo-preview-text" style="font-size: 18px; font-weight: 400; line-height: 1.6;">Body / Medium</div>
+                    <div class="typo-preview-text" style="font-size: 18px; font-weight: 400; line-height: 1.6;">Body / Default</div>
                     <div class="typo-meta">
-                        <span class="typo-spec">18px · Regular · line-height 1.6</span>
-                        <span class="typo-use">기본 읽기용 본문 및 콘텐츠 설명 문장</span>
+                        <span class="typo-spec">18px · Regular · line-height 160%</span>
+                        <span class="typo-use">일반 본문 · 상단 메뉴 링크 · 하단 푸터 링크 · 카피라이트</span>
                     </div>
                 </div>
 
-                <!-- Typo Item 5 -->
                 <div class="typo-item">
-                    <div class="typo-preview-text" style="font-size: 16px; font-weight: 400; line-height: 1.6;">Body / Small</div>
+                    <div class="typo-preview-text" style="font-size: 18px; font-weight: 600; line-height: 1.4;">Label / Button</div>
                     <div class="typo-meta">
-                        <span class="typo-spec">16px · Regular · line-height 1.6</span>
-                        <span class="typo-use">카드 보조 설명, 메타 정보, 하단 부가 안내</span>
-                    </div>
-                </div>
-
-                <!-- Typo Item 6 -->
-                <div class="typo-item">
-                    <div class="typo-preview-text" style="font-size: 16px; font-weight: 600; line-height: 1.4;">Label / Medium</div>
-                    <div class="typo-meta">
-                        <span class="typo-spec">16px · SemiBold · line-height 1.4</span>
-                        <span class="typo-use">Button, Tab, Form Label UI 텍스트</span>
+                        <span class="typo-spec">18px · SemiBold · line-height 140%</span>
+                        <span class="typo-use">버튼 내부 텍스트, 뱃지, 입력창 라벨</span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- SECTION 04: ACCESSIBILITY -->
+        <!-- SECTION 04: SPACING GUIDE -->
+<section>
+    <span class="badge">04 · SPACING GUIDE</span>
+    <h2>스페이싱(Spacing) 적용 기준 및 범위</h2>
+    <p>UI 요소 간의 간격과 여백을 일정한 규칙으로 관리하여 화면의 가독성과 시각적 균형을 높이는 체계입니다.</p>
+
+    <!-- 1. 스페이싱 유연 기준 3단계 설명 블록 -->
+    <h3 style="margin-top: 32px;">📌 스페이싱 단위를 유연하게 바라보는 3단계 기준</h3>
+    <p style="font-size: .95em; color: var(--text-muted); margin-bottom: 20px;">
+      화면을 구성할 때 아래의 3가지 공간 개념에 대입하여 유연하게 적용합니다."
+    </p>
+
+    <div class="grid-2" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin-bottom: 32px;">
+        <div class="card" style="margin-bottom: 0; padding: 20px;">
+          <strong style="font-size: 20px; color: var(--accent); display: block; margin-bottom: 8px;">
+            1. 글자·아이콘 붙이기 (4px ~ 12px)
+          </strong>
+          <p style="font-size: 16px; margin-bottom: 0; line-height: 1.6; color: var(--text-secondary);">
+              <strong>버튼 안의 아이콘과 글자 사이</strong>, 또는 입력창과 라벨처럼 서로 밀접하게 붙어 있어야 하는 아주 작은 요소 간의 간격입니다.
+          </p>
+        </div>
+
+        <div class="card" style="margin-bottom: 0; padding: 20px;">
+            <strong style="font-size: 20px; color: var(--accent); display: block; margin-bottom: 8px;">
+            2. 카드·그룹 묶기 (16px ~ 40px)
+            </strong>
+            <p style="font-size: 16px; margin-bottom: 0; line-height: 1.6; color: var(--text-secondary);">
+                <strong>카드 안쪽 여백</strong>이나 카드와 카드 사이, 제목과 본문처럼 하나의 작은 내용 묶음(그룹)을 만들 때 쓰는 간격입니다.
+            </p>
+        </div>
+
+        <div class="card" style="margin-bottom: 0; padding: 20px;">
+            <strong style="font-size: 20px; color: var(--accent); display: block; margin-bottom: 8px;">
+                3. 큰 영역 나누기 (48px ~ 128px)
+            </strong>
+            <p style="font-size: 16px; margin-bottom: 0; line-height: 1.6; color: var(--text-secondary);">
+                <strong>상단 히어로 영역, 서비스 소개, 하단 푸터</strong>처럼 완전히 다른 주제의 큰 구역(섹션)과 구역 사이를 큼직하게 띄울 때 씁니다.
+            </p>
+        </div>
+    </div>
+
+    <h3 style="margin-top: 32px;">📏 전체 스케일 시스템</h3>
+    <p style="font-size: .95em; margin-bottom: 16px; color: var(--text-muted);">
+        프로젝트에 사용하는 전체 수치 목록입니다. 주로 4px/8px 배수 단위를 기본으로 활용합니다.
+    </p>
+
+    <div class="spacing-grid" style="grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap: 12px;">
+        <div class="spacing-card" style="padding: 16px 12px;">
+            <strong style="font-size: 20px; color: var(--text-muted);">2px</strong>
+        </div>
+        <div class="spacing-card" style="padding: 16px 12px;">
+            <strong style="font-size: 20px;">4px</strong>
+        </div>
+        <div class="spacing-card" style="padding: 16px 12px;">
+            <strong style="font-size: 20px;">8px</strong>
+        </div>
+        <div class="spacing-card" style="padding: 16px 12px;">
+            <strong style="font-size: 20px;">12px</strong>
+        </div>
+        <div class="spacing-card" style="padding: 16px 12px;">
+            <strong style="font-size: 20px;">16px</strong>
+        </div>
+        <div class="spacing-card" style="padding: 16px 12px;">
+            <strong style="font-size: 20px;">24px</strong>
+        </div>
+        <div class="spacing-card" style="padding: 16px 12px;">
+            <strong style="font-size: 20px;">32px</strong>
+        </div>
+        <div class="spacing-card" style="padding: 16px 12px;">
+            <strong style="font-size: 20px;">40px</strong>
+        </div>
+        <div class="spacing-card" style="padding: 16px 12px;">
+            <strong style="font-size: 20px;">48px</strong>
+        </div>
+        <div class="spacing-card" style="padding: 16px 12px;">
+            <strong style="font-size: 20px;">64px</strong>
+        </div>
+        <div class="spacing-card" style="padding: 16px 12px;">
+            <strong style="font-size: 20px;">80px</strong>
+        </div>
+        <div class="spacing-card" style="padding: 16px 12px;">
+            <strong style="font-size: 20px;">96px</strong>
+        </div>
+        <div class="spacing-card" style="padding: 16px 12px;">
+            <strong style="font-size: 20px;">128px</strong>
+        </div>
+    </div>
+
+    <!-- 3. 주요 실습 수치 시각적 카드 -->
+    <h3 style="margin-top: 36px;">📐 실습에 적용하는 핵심 스페이싱 시각 가이드</h3>
+    <div class="spacing-grid" style="grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 16px;">
+        <div class="spacing-card">
+            <div class="spacing-visual" style="width: 8px; height: 32px;"></div>
+            <strong style="font-size: 20px;">8px</strong>
+            <p style="font-size: 15px; margin-bottom: 0;">최소 간격<br>(아이콘-글자, 버튼간격)</p>
+        </div>
+        <div class="spacing-card">
+            <div class="spacing-visual" style="width: 24px; height: 32px;"></div>
+            <strong style="font-size: 20px;">24px</strong>
+            <p style="font-size: 15px; margin-bottom: 0;">표준 간격<br>(카드 간격, 거터)</p>
+        </div>
+        <div class="spacing-card">
+            <div class="spacing-visual" style="width: 64px; height: 32px;"></div>
+            <strong style="font-size: 20px;">64px</strong>
+            <p style="font-size: 15px; margin-bottom: 0;">일반 섹션 간격<br>(Section Padding)</p>
+        </div>
+        <div class="spacing-card">
+            <div class="spacing-visual" style="width: 80px; height: 32px;"></div>
+            <strong style="font-size: 20px;">80px</strong>
+            <p style="font-size: 15px; margin-bottom: 0;">주요 섹션 간격<br>(콘텐츠 블록 여백)</p>
+        </div>
+        <div class="spacing-card">
+            <div class="spacing-visual" style="width: 100px; height: 32px; background: var(--accent); border: none;"></div>
+            <strong style="font-size: 20px; color: var(--accent);">128px</strong>
+            <p style="font-size: 15px; margin-bottom: 0;">히어로 섹션<br>(Hero 전용 상하 여백)</p>
+        </div>
+    </div>
+</section>
+
+        <!-- SECTION 05: ACCESSIBILITY -->
         <section>
-            <span class="badge">04 · ACCESSIBILITY</span>
+            <span class="badge">05 · ACCESSIBILITY</span>
             <h2>웹 접근성(Accessibility) 3대 매너</h2>
-            <p>사용자 누구나 편안하게 읽고 조작할 수 있도록 디자인 단계에서 반드시 지켜야 할 기본 규칙입니다.</p>
+            <p>사용자 누구나 편안하게 읽고 정확히 조작할 수 있도록 화면 설계 단계에서 반드시 지켜야 할 기본 규칙입니다.</p>
             
             <div class="grid-2">
+                <!-- 1. 명도대비 개선 -->
                 <div class="card">
-                    <h3>1. 명도대비 (너무 연하게 쓰지 않기)</h3>
-                    <p>배경색과 글자색의 차이가 적어 <strong>글씨가 너무 연하면</strong> 눈이 피로하고 글자를 읽기 힘듭니다. 바탕과 확실히 대비되는 진한 색상을 사용하여 눈에 잘 띄도록 합니다.</p>
+                    <h3>1. 명도대비 (눈이 편안한 적정 대조)</h3>
+                    <p>배경과 글자색의 차이가 적어 너무 연하면 글자를 읽기 힘들고, 반대로 완전한 흑백(<code>#000000</code> / <code>#FFFFFF</code>)처럼 명도 대비가 극단적이면 눈에 강한 자극과 피로를 줍니다.</p>
+                    <p style="font-size: .95em; color: var(--text-muted); margin-bottom: 0;">
+                        선명하면서도 눈이 편안하도록 완전한 검은색 대신 소프트 다크 톤(<code>#111111</code>, <code>#222222</code>)을 활용해 적절한 대비를 형성합니다.
+                    </p>
                 </div>
+
+                <!-- 2. 글자크기 및 위계 개선 -->
                 <div class="card">
-                    <h3>2. 글자크기 (최소 크기 유지)</h3>
-                    <p>데스크톱 본문은 <strong>최소 16px 이상</strong>을 기본으로 설정합니다. 가독성을 해치는 지나치게 작은 글씨는 피하고, 중요한 정보일수록 위계에 맞춰 크기를 키워줍니다.</p>
-                </div>
+    <h3>2. 글자 크기 및 다각적 위계 표현</h3>
+    <p>
+        데스크톱 본문은 <strong>최소 16px 이상</strong>(18px 권장)을 기본으로 설정하며, 뱃지·캡션·주석 등 아무리 작은 부가 요소라도 가독성 및 웹 접근성을 위해 <strong>최소 14px 이상</strong>을 확보합니다.
+    </p>
+    <p style="font-size: .95em; color: var(--text-muted); margin-bottom: 0;">
+        또한 정보의 중요도는 단순한 크기뿐만 아니라, 두께(Bold)와 색상의 농도(Color Depth), 주변 여백(Spacing), 레이아웃 구조를 함께 조합하여 더욱 정돈되고 명확한 위계를 만들 수 있습니다.
+    </p>
+</div>
             </div>
 
-            <div class="card">
-                <h3>3. 터치 및 조작 영역 (충분한 버튼 크기)</h3>
-                <p>버튼이나 클릭해야 하는 링크 요소가 너무 작으면 손가락으로 누르거나 마우스로 클릭하기 어렵습니다. <strong>최소 44×44px 이상의 충분한 조작 영역과 여백</strong>을 확보해 오작동을 방지합니다.</p>
+            <!-- 3. 사용자 조작성 향상 -->
+            <div class="card" style="margin-top: 24px;">
+                <h3>3. 터치 및 조작 영역 (사용자 조작성 향상)</h3>
+                <p>버튼 및 주요 클릭 요소를 손쉽고 정확하게 조작할 수 있도록 <strong>충분한 조작 영역과 여백</strong>을 확보합니다.</p>
+                <ul style="font-size: .95em; color: var(--text-muted); margin-left: 24px; line-height: 1.6;">
+                    <li><strong>주요 버튼/아이콘:</strong> 타겟 영역을 넉넉하게 확보(권장 44×44px 이상)하여 누르기 쉬운 조작감을 제공합니다.</li>
+                    <li><strong>하단 텍스트 링크 (푸터 등):</strong> 최소 18px 글자 크기와 150% 이상(최소 27px 높이)의 행간을 확보하여 자연스러운 터치 영역을 형성합니다.</li>
+                </ul>
             </div>
         </section>
 
-        <!-- SECTION 05: RECOMMENDED PLUGINS -->
+        <!-- SECTION 06: RECOMMENDED TOOLS & PLUGINS -->
         <section>
-            <span class="badge">05 · USEFUL PLUGINS</span>
-            <h2>추천 피그마 플러그인 목록</h2>
+            <span class="badge">06 · USEFUL TOOLS</span>
+            <h2>피그마 내장 기능 및 추천 플러그인</h2>
+            <p>작업 속도를 높여주고, 피그마 스타일과 데이터 관리를 손쉽게 돕는 도구입니다.</p>
+            
+            <!-- 피그마 내장 기능 안내 -->
+            <div class="card" style="margin-bottom: 24px; border-color: var(--accent);">
+                <h3>💡 피그마 내장 기능: Color Contrast (명암비 검수)</h3>
+                <p>별도 플러그인 없이 피그마의 <strong>Color Picker 패널 내부</strong>에서 텍스트와 배경 간 명암비가 웹 접근성 표준(WCAG AA/AAA)을 충족하는지 실시간으로 바로 확인할 수 있습니다.</p>
+            </div>
+
+            <!-- 유용한 플러그인 4종 -->
             <div class="grid-2">
                 <div class="card">
-                    <h3>🎨 Lucide Icons / Feather Icons</h3>
-                    <p>웹 표준 개발에서 가장 흔히 쓰이는 깔끔한 벡터 아이콘 라이브러리를 피그마에 즉시 불러옵니다.</p>
-                </div>
-                <div class="card">
-                    <h3>🖼️ Unsplash</h3>
-                    <p>카드나 히어로 영역에 들어갈 고화질 실사 이미지를 클릭 한 번으로 무작위 적용할 수 있습니다.</p>
-                </div>
-                <div class="card">
-                    <h3>Contrast Checker</h3>
-                    <p>선택한 글자색과 배경색의 명암비가 웹 접근성 표준(WCAG AA/AAA)을 충족하는지 실시간 검수합니다.</p>
-                </div>
-                <div class="card">
                     <h3>Content Reel</h3>
-                    <p>더미 데이터(사람 이름, 프로필 사진, 날짜, 주소 등)를 드래그 한 번으로 채워 넣을 수 있습니다.</p>
+                    <p>더미 데이터(사람 이름, 프로필 사진, 날짜, 주소 등)를 간편하게 채워 넣을 수 있습니다.</p>
+                </div>
+                <div class="card">
+                    <h3>Lucide Icons / Feather Icons</h3>
+                    <p>웹 표준 개발에서 가장 흔히 쓰이는 깔끔한 벡터 아이콘 라이브러리를 즉시 불러옵니다.</p>
+                </div>
+                <div class="card">
+                    <h3>Batch Styler</h3>
+                    <p>등록해 둔 수많은 컬러 스타일과 폰트 스타일을 한곳에서 일괄(Batch)로 한 번에 변경할 수 있습니다.</p>
+                </div>
+                <div class="card">
+                    <h3>Unsplash</h3>
+                    <p>카드나 히어로 영역에 들어갈 고화질 실사 이미지를 클릭 한 번으로 적용합니다.</p>
                 </div>
             </div>
         </section>
 
-        <!-- SECTION 06: ADVANCED (HIDDEN ACCORDION) -->
-        <section>
+        <!-- SECTION 07: ADVANCED (HIDDEN ACCORDION - NEXT STEP) -->
+        <section hidden>
             <span class="badge" style="background-color: #fee2e2; color: #ef4444;">NEXT CURRICULUM</span>
-            <h2>Toggle</h2>
-            <!-- <p></p> -->
+            <h2>다음 단계 미리보기 (수행 2차 예정)</h2>
+            <p>이번 1차 프로젝트에서는 기본 <strong>스타일(Style) 및 필수 컴포넌트(Component)</strong>를 익히고, 다음 2차 프로젝트에서 변수(Variables)와 세트 관리로 확장합니다.</p>
 
             <!-- HIDDEN ITEM 1 -->
             <div class="hidden-section">
                 <button class="toggle-btn" onclick="toggleAccordion('content1', this)">
-                    <span>01. Component & Variant</span>
+                    <span>01. Component & Component Set</span>
                     <span class="unlock-icon">클릭하여 열기/닫기</span>
                 </button>
                 <div id="content1" class="toggle-content">
                     <h3>반복 UI의 컴포넌트화와 상태 관리</h3>
-                    <p>• <strong>Main Component (❖):</strong> 디자인의 원본을 만들어두고 변경 사항을 한 번에 업데이트합니다.</p>
-                    <p>• <strong>Variants:</strong> Hover, Active, Disabled 등 버튼이나 입력창의 상태별 디자인을 한 그룹으로 묶어 관리합니다.</p>
+                    <p>• <strong>기본 컴포넌트 (❖):</strong> 반복해서 사용하는 버튼과 카드를 컴포넌트로 만들어 수정 사항을 한 번에 반영합니다.</p>
+                    <p>• <strong>Variants (컴포넌트 세트):</strong> Hover, Active, Disabled 등 버튼이나 입력창의 상태별 디자인을 한 그룹으로 묶어 관리합니다.</p>
                 </div>
             </div>
 
             <!-- HIDDEN ITEM 2 -->
             <div class="hidden-section">
                 <button class="toggle-btn" onclick="toggleAccordion('content2', this)">
-                    <span>02. Variables System</span>
+                    <span>02. Variables System (2차 수행 예정)</span>
                     <span class="unlock-icon">클릭하여 열기/닫기</span>
                 </button>
                 <div id="content2" class="toggle-content">
                     <h3>피그마 Variable 시스템을 활용한 토큰 구축</h3>
-                    <p>• <strong>시스템 분리 원칙:</strong> 폰트 스타일(Text Style)은 피그마의 기본 Text Style 시스템을 사용하고, Color, Spacing, Radius 등은 <strong>Variable</strong>로 구축합니다.</p>
-                    <p>• <strong>Color Variable:</strong> 역할 기반 토큰(예: <code>color/accent</code>, <code>color/text/primary</code>)을 변수로 생성하여 일관되게 적용합니다.</p>
-                    <p>• <strong>Spacing & Radius Variable:</strong> 4px/8px 단위의 여백 수치와 컴포넌트 라운드 값을 변수로 관리하여 디자인의 규칙성을 유지합니다.</p>
+                    <p>• <strong>Color / Spacing / Radius Variable:</strong> 수치화된 간격 값과 Border, Radius 등의 스펙을 변수로 관리하여 다크모드나 테마 변경에 대응합니다.</p>
                 </div>
             </div>
 
@@ -471,23 +599,21 @@
                     <span class="unlock-icon">클릭하여 열기/닫기</span>
                 </button>
                 <div id="content3" class="toggle-content">
-                    <h3>개발자 전달을 위한 최종 가이드</h3>
-<p>• <strong>컴포넌트 정리:</strong> 반복·재사용되는 UI는 Component로 정리하고, Variant/Properties를 일관되게 구성합니다. 단순히 화면에 보이는 개수만큼 컴포넌트를 만들지 않습니다.</p>
-<p>• <strong>자산 정리:</strong> 로고·아이콘·이미지 등 개발에 사용되는 자산은 의미 있는 이름과 적절한 형식(SVG, PNG 등)으로 정리하고, 동일 자산을 중복 생성하지 않습니다.</p>
-<p>• <strong>레이어 정돈:</strong> 의미 없는 <code>Frame 123</code> 대신 <code>Header</code>, <code>Header Content</code>, <code>Header Actions</code>, <code>Footer Navigation</code>과 같이 콘텐츠 역할과 레이아웃 관계가 드러나는 이름으로 정돈합니다.</p>
-<p>• <strong>Dev Mode 활용:</strong> CSS로 구현되는 레이아웃, 크기, 간격, 색상, 타이포그래피 등의 값이 의도대로 전달되는지 최종 검수합니다.</p>
+                    <h3>개발자 전달을 위한 최종 레이어 정돈</h3>
+                    <p>• <strong>레이어 이름 지정:</strong> 의미 없는 <code>Frame 123</code> 대신 <code>Header</code>, <code>Card List</code>, <code>Footer Navigation</code>처럼 역할이 드러나는 명확한 이름을 작성합니다.</p>
+                    <p>• <strong>Dev Mode 활용:</strong> CSS로 구현되는 레이아웃, 크기, 간격, 색상, 타이포그래피 값이 정확히 반영되었는지 확인합니다.</p>
                 </div>
             </div>
         </section>
 
     </div>
 
-    <script>
-        // 히든 아코디언 토글 JS
-        function toggleAccordion(id, btn) {
-            const content = document.getElementById(id);
-            content.classList.toggle('active');
-        }
-    </script>
+<script>
+// 히든 아코디언 토글 JS
+function toggleAccordion(id, btn) {
+  const content = document.getElementById(id);
+  content.classList.toggle('active');
+}
+</script>
 </body>
 </html>

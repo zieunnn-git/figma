@@ -286,6 +286,13 @@
             font-size: 14px;
         }
 
+        .list-info{margin: 0; padding-left: 20px;font-size: .95em;}
+        .submission-box .list-info{color: #78350f;}
+        .list-info li{padding:2px 0}
+        .list-info > li{padding:4px 0}
+        .list-info ul{padding-left:24px; margin-top: 4px;}
+        .list-info em{font-style: normal;font-weight: bold;}
+
         /* Responsive */
         @media (max-width: 768px) {
             body { font-size: 16px; }
@@ -513,37 +520,50 @@
 
         <!-- EVALUATION & SUBMISSION -->
         <section style="border-bottom: none;">
-            <span class="badge" style="background-color: #fef3c7; color: #d97706;">Assignment</span>
-            <h2>수행평가 작업 및 제출 안내</h2>
-            
-            <p>함께 진행한 실습이 끝나면, 각자 기획하고 작성한 <strong>와이어프레임에 맞게 수행평가 작품 제작</strong>을 시작합니다.</p>
+    <span class="badge" style="background-color: #fef3c7; color: #d97706;">Assignment</span>
+    <h2>수행평가 작업 및 제출 안내</h2>
+    
+    <p>함께 진행한 실습이 끝나면, 각자 기획하고 작성한 <strong>와이어프레임에 맞게 수행평가 작품 제작</strong>을 시작합니다.</p>
 
-            <div class="card" style="margin-top: 16px;">
-                <h3>💡 와이어프레임 제작 팁</h3>
-                <p>• 와이어프레임에서 작업하기 까다로운 구조가 있다면 오토레이아웃으로 <strong>구현하기 쉬운 형태로 유연하게 변경</strong>해도 좋습니다.</p>
-                <p>• 분량이 너무 많다면 필수 요소인 <strong>[상단 / 히어로 / 하단]</strong>을 기본으로 하고, <strong>[메인 콘텐츠]</strong>는 본인 주제에 맞춰 1개 영역만 선택하여 밀도 있게 제작합니다.</p>
-            </div>
+    <div class="submission-box">
+        <h3 style="color: #92400e; margin-bottom: 12px; font-size: 22px;">📁 제출 파일 및 수행1 작업 안내</h3>
+        <p style="color: #78350f; margin-bottom: 16px;">수업 실습 파일과 개인 수행평가 파일의 규칙을 반드시 준수하여 제출합니다.</p>
+        
+        <!-- 파일명 규칙 -->
+        <div style="margin-top: 16px;">
+            <p style="color: #78350f; font-weight: 600; margin-bottom: 4px;">1. 수업 같이하기 실습 파일명:</p>
+            <span class="submission-code">실습1-2-0-홍길동</span>
+            <p style="font-size: 14px; color: #a16207; margin-bottom: 12px;">※ '실습1 - 2학년 - 0반 - 이름' 의미</p>
 
-            <div class="submission-box">
-                <h3 style="color: #92400e; margin-bottom: 12px; font-size: 22px;">📁 제출 파일 작성 규칙 (총 2개 제출)</h3>
-                <p style="color: #78350f;">수업 중 진행한 실습과 본인 개인 수행평가 파일의 제목 규칙을 엄격히 준수합니다.</p>
-                
-                <div style="margin-top: 16px;">
-                    <p style="color: #78350f; font-weight: 600;">1. 수업 같이하기 실습 파일:</p>
-                    <span class="submission-code">실습1-2-0-홍길동</span>
-                    <p style="font-size: 15px; color: #a16207; margin-bottom: 12px;">※ '실습1 - 2학년 - 0반 - 본인이름'을 의미함</p>
+            <p style="color: #78350f; font-weight: 600; margin-bottom: 4px;">2. 개인 주제 수행평가 파일명:</p>
+            <span class="submission-code">수행1-2-0-홍길동</span>
+            <p style="font-size: 14px; color: #a16207;">※ '수행1 - 2학년 - 0반 - 이름' 의미</p>
+        </div>
 
-                    <p style="color: #78350f; font-weight: 600;">2. 개인 주제 수행평가 파일:</p>
-                    <span class="submission-code">수행1-2-0-홍길동</span>
-                    <p style="font-size: 15px; color: #a16207;">※ '수행1 - 2학년 - 0반 - 본인이름'을 의미함</p>
-                </div>
+        <!-- 제출 전 필수 확인사항 -->
+        <div style="margin-top: 16px; padding-top: 12px; border-top: 1px dashed #fcd34d;">
+            <p style="color: #b45309; font-weight: 700; margin-bottom: 4px;">⚠️ 제출 전 필수 확인사항</p>
+            <!-- <p style="color: #78350f; font-size: 15px; margin-bottom: 0;">
+                제출용 피그마 파일 내에는 최종 <strong>Desktop 프레임 1개만 남기고</strong>, 바깥의 불필요한 작업용 리소스나 레이아웃은 깔끔히 정리(삭제 또는 별도 파일 보관)합니다. 제출은 <strong>피그마 링크(Share &gt; Anyone with the link can view)</strong>로 제출합니다.
+            </p> -->
+            <ul class="list-info">
+              <li><strong>제출 형태</strong>: <em>피그마 링크 제출</em> (Share > <strong>Anyone</strong> with the link can view 권한 설정 필수)</li>
+              <li><strong>제출용 파일 정리</strong>: 피그마 파일 내에는 <strong>최종 결과물 1개</strong>만 남기고, 바깥에 널려 있는 불필요한 작업용 리소스나 초안 레이아웃은 <em>깔끔하게 정리</em>(삭제 또는 별도 페이지/파일 이동)해 주세요.</li>
+            </ul>
+        </div>
+    </div>
 
-                <div style="margin-top: 20px; padding-top: 16px; border-top: 1px dashed #fcd34d;">
-                    <p style="color: #b45309; font-weight: 700;">⚠️ 제출 전 필수 확인사항</p>
-                    <p style="color: #78350f; font-size: 16px; margin-bottom: 0;">제출 파일에는 <strong>Desktop 프레임 1개만 남기고</strong>, 불필요한 바깥 레이아웃이나 작업용 리소스는 깔끔히 제거합니다. (필요 시 따로 보관)</p>
-                </div>
-            </div>
-        </section>
+    <div class="card" style="margin-top: 16px;">
+        <h3>💡 수행1 작업 및 정리</h3>
+        <ul class="list-info">
+          <li><strong>작업 준비</strong>: 기존에 작성한 개별 와이어프레임이 없는 경우, '같이하기 실습 파일'을 복제하고
+          <em>본인의 주제 컨셉(기획, 색상, 글자 위계)에 맞춰 디자인을 진행</em>합니다.</li>
+          <li>와이어프레임에서 작업하기 까다로운 구조가 있다면 오토레이아웃으로 <em>구현하기 쉬운 형태로 유연하게 변경</em>해도 좋습니다.</li>
+          <li>분량이 너무 많다면 필수 요소인 <strong>[상단 / 히어로 / 메인 콘텐츠 / 하단]</strong>을 기본으로 하고, <strong>[메인 콘텐츠]</strong>는 본인 주제에 맞춰 1개 영역만 선택하여 밀도 있게 제작합니다.</li>
+        </ul>
+    </div>
+
+</section>
 
     </div>
 
